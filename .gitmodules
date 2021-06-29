@@ -1,6 +1,7 @@
 [submodule "uSockets"]
 	path = uSockets
-	url = https://github.com/uNetworking/uSockets.git
+	url = git@github.com:cambustion/external-uSockets.git
+	branch = @cambustion/v0.7.1
 [submodule "fuzzing/libEpollFuzzer"]
 	path = fuzzing/libEpollFuzzer
 	url = https://github.com/uNetworking/libEpollFuzzer
