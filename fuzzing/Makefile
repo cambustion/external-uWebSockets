@@ -29,3 +29,16 @@ oss-fuzz:
 	$(CXX) $(CXXFLAGS) -DUWS_MOCK_ZLIB -std=c++17 -O3 PerMessageDeflate.cpp -o $(OUT)/PerMessageDeflate $(LIB_FUZZING_ENGINE)
 	$(CXX) $(CXXFLAGS) -std=c++17 -O3 TopicTree.cpp -o $(OUT)/TopicTree $(LIB_FUZZING_ENGINE)
 
+.PHONY: commands
+commands:
+	rm -f commands.log
+	echo $(CXX) $(CXXFLAGS) $(WRAPPED_SYSCALLS) -std=c++17 -O3 -DUWS_MOCK_ZLIB -I../src -I../uSockets/src -c EpollHelloWorld.cpp >> commands.log
+	echo $(CXX) $(CXXFLAGS) $(WRAPPED_SYSCALLS) -std=c++17 -O3 -DUWS_MOCK_ZLIB -I../src -I../uSockets/src -c EpollEchoServer.cpp >> commands.log
+	echo $(CXX) $(CXXFLAGS) -std=c++17 -O3 -c Extensions.cpp >> commands.log
+	echo $(CXX) $(CXXFLAGS) -std=c++17 -O3 -c QueryParser.cpp >> commands.log
+	echo $(CXX) $(CXXFLAGS) -std=c++17 -O3 -c MultipartParser.cpp >> commands.log
+	echo $(CXX) $(CXXFLAGS) -std=c++17 -O3 -c WebSocket.cpp >> commands.log
+	echo $(CXX) $(CXXFLAGS) -std=c++17 -O3 -c Http.cpp >> commands.log
+	echo $(CXX) $(CXXFLAGS) -DUWS_WITH_PROXY -std=c++17 -O3 -c Http.cpp >> commands.log
+	echo $(CXX) $(CXXFLAGS) -DUWS_MOCK_ZLIB -std=c++17 -O3 -c PerMessageDeflate.cpp >> commands.log
+	echo $(CXX) $(CXXFLAGS) -std=c++17 -O3 -c TopicTree.cpp >> commands.log
