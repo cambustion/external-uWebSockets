@@ -18,6 +18,12 @@
 #ifndef UWS_WEBSOCKETPROTOCOL_H
 #define UWS_WEBSOCKETPROTOCOL_H
 
+#ifdef _WIN32
+#define WIN32_EXPORT __declspec(dllexport)
+#else
+#define WIN32_EXPORT
+#endif
+
 #include <cstdint>
 #include <cstring>
 #include <cstdlib>
