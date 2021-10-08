@@ -21,6 +21,8 @@
 /* An app is a convenience wrapper of some of the most used fuctionalities and allows a
  * builder-pattern kind of init. Apps operate on the implicit thread local Loop */
 
+#include <string_view>
+
 #include "HttpContext.h"
 #include "HttpResponse.h"
 #include "WebSocketContext.h"
